@@ -1,0 +1,7 @@
+{
+  "name": "Voice Mimicry Agent",
+  "description": "An advanced AI agent that analyzes and mimics human voices in Hindi, Marathi, and English. It performs in-depth analysis of vocal characteristics to generate a remarkably similar voice output.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
