@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { GoogleGenAI, LiveServerMessage, Modality, GenerateContentResponse } from "@google/genai";
+import { Analytics } from "@vercel/analytics/react";
 import { AppStatus, ActiveTab, Language, Voice, BaseVoice, ClonedVoice, Preset, SpeakerConfig, PronunciationAnalysis, SoundEffect, MAX_PRONUNCIATION_TEXT_FOR_ANALYSIS, VoiceAnalysis, VoiceStatus, VoicePriority } from './types';
 import { LANGUAGES, VOICES, VOICE_STATUSES, VOICE_PRIORITIES, MUSICAL_KEYS } from './constants';
 
@@ -858,6 +859,7 @@ const App: React.FC = () => {
       {showPresetModal && <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"><div className="bg-brand-secondary p-6 rounded-lg w-full max-w-md"><h3 className="text-xl font-bold mb-4">Presets</h3><PresetManager presets={presets} onSave={handleSavePreset} onLoad={handleLoadPreset} onDelete={handleDeletePreset} disabled={isAppBusy} /><button onClick={() => setShowPresetModal(false)} className="mt-4 text-sm text-brand-subtext w-full">Close</button></div></div>}
       <main className="bg-brand-secondary p-4 sm:p-6 rounded-lg shadow-lg">{renderTabContent()}</main>
       <DebugConsole />
+      <Analytics />
     </div>
   );
 };
